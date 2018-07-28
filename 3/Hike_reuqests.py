@@ -93,7 +93,7 @@
 #
 #
 
-import requests
+# import requests
 
 # response = requests.get("https://www.baidu.com/")
 # print(response)
@@ -110,13 +110,43 @@ import requests
 # print(response.json())
 
 #抓取网页：
-import re
+# import re
+#
+# headers = {
+#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'
+# }
+# url = 'https://www.zhihu.com/explore'
+# response = requests.get(url=url, headers=headers)
+# pattern = re.compile('class.*?question.*?Title.*?>(.*?)</a>',re.S)
+# titles = re.findall(pattern,response.text)
+# print(titles)
 
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36'
-}
-url = 'https://www.zhihu.com/explore'
-response = requests.get(url=url, headers=headers)
-pattern = re.compile('class.*?question.*?Title.*?>(.*?)</a>',re.S)
-titles = re.findall(pattern,response.text)
-print(titles)
+# import requests
+#
+# data = {
+#     'name': 'germey',
+#     'age': 21
+# }
+# url = 'http://www.httpbin.org/post'
+#
+# response = requests.post(url=url, data=data)
+# print(response.text)
+# print(response.history)
+
+# 一些高级用法
+# 模拟文件上传
+# import requests
+#
+# file = {'file': open('github.ico', 'rb')}
+# url = 'http://httpbin.org/post'
+# r = requests.post(url, files=file)
+# print(r.text)
+
+# cookies的处理
+
+import requests
+
+url = 'https://www.baidu.com/'
+r = requests.get(url)
+for key, value in r.cookies.items():
+    print(key+'= '+ value)

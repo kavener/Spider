@@ -7,24 +7,24 @@ Accept: */*
 Accept-Encoding: gzip, deflate
 Accept-Language: zh,en-US;q=0.9,en;q=0.8,zh-CN;q=0.7
 Connection: keep-alive
-Content-Length: 240
+Content-Length: 213
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
-Cookie: _gscu_2116842793=32182710w1ghhu79; Hm_lvt_d2caefee2de09b8a6ea438d74fd98db2=1532182710,1532672323,1533042266; _gscbrs_2116842793=1; vjkl5=c5be62ee09bffd7f04f01a618dbba5d058545893; Hm_lpvt_d2caefee2de09b8a6ea438d74fd98db2=1533049048; _gscs_2116842793=t33049048d6z6bs19|pv:1
+Cookie: _gscu_2116842793=32182710w1ghhu79; _gscbrs_2116842793=1; Hm_lvt_d2caefee2de09b8a6ea438d74fd98db2=1532182710,1532672323,1533042266,1533049479; vjkl5=aa2af9bffdff0b901ea1859f5bde66c280662e55; _gscs_2116842793=t33049048d6z6bs19|pv:6; Hm_lpvt_d2caefee2de09b8a6ea438d74fd98db2=1533049529
 Host: wenshu.court.gov.cn
 Origin: http://wenshu.court.gov.cn
-Referer: http://wenshu.court.gov.cn/List/List?sorttype=1&conditions=searchWord+2+AJLX++%E6%A1%88%E4%BB%B6%E7%B1%BB%E5%9E%8B:%E6%B0%91%E4%BA%8B%E6%A1%88%E4%BB%B6
+Referer: http://wenshu.court.gov.cn/list/list/?sorttype=1&number=87NDDC77&guid=7fc5fe6d-67db-585b87fa-e8cb13c3817b&conditions=searchWord+%E5%90%88%E5%90%8C+++%E5%85%B3%E9%94%AE%E8%AF%8D:%E5%90%88%E5%90%8C
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.87 Safari/537.36
 X-Requested-With: XMLHttpRequest
 '''
 form_data = '''
-Param: 案件类型:民事案件
+Param: 关键词:合同
 Index: 9
 Page: 5
 Order: 法院层级
 Direction: asc
-vl5x: 69b68b41342d7b787b7a10d0
-number: VHQ8GYC7
-guid: 532a43e7-2bc3-0233df72-cb963bb3dcb1
+vl5x: 37bc203a772b49940808dda5
+number: 5Q895295
+guid: 04768aee-6a5d-d55e776d-9f2159814e0a
 '''
 
 def request_format(Request_headers):
@@ -39,9 +39,8 @@ def request_format(Request_headers):
     return headers
 headers = request_format(Request_headers)
 data = request_format(form_data)
-print(headers)
-print(data)
-response = requests.get(url=url, headers=headers, params=data)
-print(response.status_code)
+
+response = requests.post(url='http://wenshu.court.gov.cn/List/ListContent', headers=headers, data=data)
+print(response.text)
 
 

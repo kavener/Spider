@@ -6,15 +6,26 @@ from selenium.webdriver.support .wait import WebDriverWait
 
 browser = webdriver.Chrome()
 
-try:
-    browser.get('https://www.baidu.com')
-    input = browser.find_element_by_id('kw')
-    input.send_keys('Python')
-    input.send_keys(Keys.ENTER)
-    wait = WebDriverWait(browser, 10)
-    wait.until(EC.presence_of_element_located((By.ID, 'content_left')))
-    print(browser.current_url)
-    print(browser.get_cookies())
-    print(browser.page_source)
-finally:
-    print("right!")
+# try:
+#     browser.get('https://www.baidu.com')
+#     input = browser.find_element_by_id('kw')
+#     input.send_keys('Python')
+#     input.send_keys(Keys.ENTER)
+#     wait = WebDriverWait(browser, 10)
+#     wait.until(EC.presence_of_element_located((By.ID, 'content_left')))
+#     print(browser.current_url)
+#     print(browser.get_cookies())
+#     print(browser.page_source)
+# finally:
+#     browser.close()
+import time
+
+
+browser.get('https://www.taobao.com')
+input = browser.find_element_by_id('q')
+input.send_keys('iphone')
+time.sleep(1)
+input.clear()
+input.send_keys('ipad')
+button = browser.find_element_by_class_name('btn-search')
+button.click()
